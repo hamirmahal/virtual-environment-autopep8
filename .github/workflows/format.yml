@@ -1,0 +1,11 @@
+name: Check
+on: [push]
+jobs:
+  formatting:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: pip install -r requirements.txt
+      - run: |
+          autopep8 p.py --in-place
+          git diff --exit-code

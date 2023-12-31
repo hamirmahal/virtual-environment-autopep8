@@ -1,0 +1,9 @@
+name: Check
+on: [push]
+jobs:
+  types:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: pip install -r requirements.txt
+      - run: mypy .
